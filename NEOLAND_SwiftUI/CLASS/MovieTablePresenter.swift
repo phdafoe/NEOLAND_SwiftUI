@@ -8,15 +8,13 @@
 
 import Foundation
 
-class MovieTablePresenter : ObservableObject {
-    
-    let interactor = MovieTableInteractor()
-    
+class MovieTablePresenter : MovieTableInteractor, ObservableObject {
+        
     @Published var movies: [Result] = []
     
     internal func getDataFromWeb(){
         movies.removeAll()
-        self.interactor.getMoviesInteractor(success: { (moviesEntity) in
+        getMoviesInteractor(success: { (moviesEntity) in
             if let feedDes = moviesEntity.feed, let resultsDes = feedDes.results{
                self.movies = resultsDes
             }
