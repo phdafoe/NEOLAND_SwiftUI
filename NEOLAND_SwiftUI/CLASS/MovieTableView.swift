@@ -24,15 +24,8 @@ struct MovieTableView: View {
         NavigationView{
             List(presenter.movies) { movie in
                 CustomCellMovie(movie: movie).frame(height: 300)
-                /*HStack(spacing: 8) {
-                    ForEach(0..<2) { _ in
-                       
-                    }
-                     }*/
             }.navigationBarTitle(Text("Movies from Apple"), displayMode: .large)
         }
-        
-        
     }
 }
 
