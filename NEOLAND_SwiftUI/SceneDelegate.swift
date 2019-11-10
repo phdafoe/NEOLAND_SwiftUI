@@ -11,7 +11,7 @@ import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
-    let appAssembly = AppAssembly()
+    let appAssembly : AppAssemblyProtocol = AppAssembly()
     var window: UIWindow?
 
 

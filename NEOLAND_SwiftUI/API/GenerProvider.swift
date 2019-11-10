@@ -11,13 +11,18 @@ import Foundation
 
 class GenericProvider: BaseProvider {
     
-    func getMoviesProvider(success: @escaping(MoviesModel) -> (), failure: @escaping(EError) -> ()) {
-        request(entityClass: MoviesModel.self,
-                endpoint: CONSTANTS.BASE_URL.BASE_URL_MOVIE,
-                method: .get, success: { (entity) in
-            success(entity)
-        }) { (error) in
-            failure(error)
-        }
+    func getMoviesProvider(success: @escaping(MoviesModel) -> (), failure: @escaping(APIError) -> ()) {
+        
+        requestGeneric(MoviesModel.self, endpoint: CONSTANTS.BASE_URL.BASE_URL_MOVIE)
+            .sink(receiveCompletion: { (completion) in
+                switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        failure(error)
+                }
+            }) { (data) in
+                success(data)
+        }.cancel()
     }
 }

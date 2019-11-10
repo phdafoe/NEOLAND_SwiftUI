@@ -21,7 +21,7 @@ class MovieTablePresenter : ObservableObject {
                self.movies = resultsDes
             }
         }, failure: { (error) in
-            print(error._localizedDescription)
+            print(error.localizedDescription)
         })
     }
 }

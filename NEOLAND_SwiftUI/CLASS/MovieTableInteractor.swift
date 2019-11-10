@@ -14,7 +14,7 @@ class MovieTableInteractor  {
         
     var provider = GenericProvider()
     
-    internal func getMoviesInteractor(success: @escaping(MoviesModel) -> (), failure: @escaping(EError) -> ()) {
+    internal func getMoviesInteractor(success: @escaping(MoviesModel) -> (), failure: @escaping(APIError) -> ()) {
         self.provider.getMoviesProvider(success: { (entity) in
             success(entity)
         }) { (error) in

@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import SwiftUI
 
-
 protocol AppAssemblyProtocol : class  {
     func applicationShowInitVC(_ window : UIWindow, scene: UIScene)
 }

@@ -7,51 +7,45 @@
 //
 
 import Foundation
+import Combine
+
+enum APIError: Error, LocalizedError {
+    case unknown, apiError(reason: String)
+    var errorDescription: String? {
+        switch self {
+        case .unknown:
+            return "Unknown error"
+        case .apiError(let reason):
+            return reason
+        }
+    }
+}
+
+
+
 
 class BaseProvider {
     
-    func request<T: Decodable>(entityClass: T.Type, endpoint: String, method: HTTPMethod, success: @escaping(_ entity: T) -> Void, failure: @escaping(EError) -> Void) {
-        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: .main)
-        let url = URL(string: endpoint)!
-        let task = session.dataTask(with: url, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
-            
-            guard error == nil else {
-                failure(EError(domain: endpoint, code: 0, localizedDescription: error?.localizedDescription ?? ""))
-                return
+    func requestGeneric<T: Decodable>(_ entityClass : T.Type, endpoint: String) -> AnyPublisher<T, APIError> {
+        
+        guard let url = URL(string: endpoint) else {
+            preconditionFailure()
+        }
+        
+        return URLSession
+            .shared
+            .dataTaskPublisher(for: url)
+            .map { $0.data }
+            .decode(type: entityClass.self, decoder: JSONDecoder())
+            .mapError { error in
+                if let error = error as? APIError {
+                    return error
+                } else {
+                    return APIError.apiError(reason: error.localizedDescription)
+                }
             }
-            guard let responseData = data else {
-                failure(EError(domain: "", code: -1, localizedDescription: ""))
-                return
-            }
-            do {
-                let response = try! JSONDecoder().decode(entityClass.self, from: responseData)
-                success(response)
-            }
-        })
-        task.resume()
+            .receive(on: RunLoop.main)
+            .eraseToAnyPublisher()
     }
 }
 
-enum HTTPMethod: String {
-    case options = "OPTIONS"
-    case get     = "GET"
-    case head    = "HEAD"
-    case post    = "POST"
-    case put     = "PUT"
-    case patch   = "PATCH"
-    case delete  = "DELETE"
-    case trace   = "TRACE"
-    case connect = "CONNECT"
-}
-
-struct EError {
-    var domain: String? = ""
-    var code: Int? = 0
-    var _localizedDescription: String = ""
-    
-    init(domain: String, code: Int, localizedDescription: String) {
-        self.domain = domain
-        self.code = code
-        _localizedDescription = localizedDescription
-    }
-}
