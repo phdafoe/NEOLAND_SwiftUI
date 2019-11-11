@@ -26,6 +26,9 @@ enum APIError: Error, LocalizedError {
 
 class BaseProvider {
     
+    /// requestGeneric
+    /// - Parameter entityClass: generic entity Class
+    /// - Parameter endpoint: genric endpoint
     func requestGeneric<T: Decodable>(_ entityClass : T.Type, endpoint: String) -> AnyPublisher<T, APIError> {
         
         guard let url = URL(string: endpoint) else {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MovieTablePresenter : MovieTableInteractor, ObservableObject {
+class MovieTablePresenter : MovieTableInteractor, ObservableObject  {
         
     @Published var movies: [Result] = []
     

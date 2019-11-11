@@ -8,9 +8,7 @@
 
 import Foundation
 
-
-
-class MovieTableInteractor : GenericProvider {
+class MovieTableInteractor : GenericProvider  {
             
     internal func getMoviesInteractor(success: @escaping(MoviesModel) -> (), failure: @escaping(APIError) -> ()) {
         getMoviesProvider(success: { (entity) in

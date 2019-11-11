@@ -34,7 +34,6 @@ class RemoteImageUrl2: ObservableObject {
         let task = URLSession.shared.dataTask(with: url) { (data, response, err) in
             guard let data = data else { return }
             guard let image = UIImage(data: data) else { return }
-            
             DispatchQueue.main.async {
                 self.image = image
             }
