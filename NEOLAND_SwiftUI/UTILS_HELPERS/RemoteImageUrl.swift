@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class RemoteImageUrl: ObservableObject {
     
@@ -18,6 +19,24 @@ class RemoteImageUrl: ObservableObject {
             guard let data = data else { return }
             DispatchQueue.main.async {
                 self.data = data
+            }
+        }
+        task.resume()
+    }
+}
+
+class RemoteImageUrl2: ObservableObject {
+    
+    @Published var image = UIImage()
+    
+    internal func getImageFromUrl(_ imageUrl : String){
+        guard let url = URL(string: imageUrl) else { return }
+        let task = URLSession.shared.dataTask(with: url) { (data, response, err) in
+            guard let data = data else { return }
+            guard let image = UIImage(data: data) else { return }
+            
+            DispatchQueue.main.async {
+                self.image = image
             }
         }
         task.resume()
