@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import Combine
 
 struct CustomCellMovie: View {
     
@@ -19,7 +18,7 @@ struct CustomCellMovie: View {
     init(movie: Result) {
         self.movie = movie
         self.remoteImage.getImageFromUrl(movie.artworkUrl100 ?? "")
-        self.remote.getImageFromUrl(movie.artworkUrl100 ?? "")
+        //self.remote.getImageFromUrl(movie.artworkUrl100 ?? "")
     }
     
     var body: some View {

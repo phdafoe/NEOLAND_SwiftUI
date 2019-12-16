@@ -16,5 +16,5 @@ struct Constants {
 }
 
 struct BaseUrl {
-    let BASE_URL_MOVIE = "https://rss.itunes.apple.com/api/v1/us/movies/top-movies/all/25/explicit.json"
+    let BASE_URL_MOVIE = "https://rss.itunes.apple.com/api/v1/us/movies/top-movies/all/10/explicit.json"
 }
