@@ -38,8 +38,8 @@ class BaseProvider {
             .map { $0.data }
             .decode(type: entityClass.self, decoder: JSONDecoder())
             .mapError { error in
-                if let error = error as? APIError {
-                    return error
+                if let errorDes = error as? APIError {
+                    return errorDes
                 } else {
                     return APIError.apiError(reason: error.localizedDescription)
                 }

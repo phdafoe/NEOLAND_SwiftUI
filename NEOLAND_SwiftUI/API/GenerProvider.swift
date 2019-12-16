@@ -22,6 +22,6 @@ class GenericProvider: BaseProvider {
                 }
             }) { (data) in
                 success(data)
-        }.cancel()
+            }.cancel()
     }
 }
