@@ -25,8 +25,8 @@ struct CustomCellMovie: View {
     var body: some View {
         return GeometryReader { geometry in
             HStack(alignment: .top) {
-                Image(uiImage: ((self.remote.image == nil ? UIImage(named: "placeholder") : self.remote.image)!))
-//                Image(uiImage: ((self.remoteImage.data.isEmpty) ? UIImage(named: "placeholder") : UIImage(data: self.remoteImage.data))!)
+                //Image(uiImage: ((self.remote.image == nil ? UIImage(named: "placeholder") : self.remote.image)!))
+                Image(uiImage: ((self.remoteImage.data.isEmpty) ? UIImage(named: "placeholder") : UIImage(data: self.remoteImage.data))!)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 180, height: 270)

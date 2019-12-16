@@ -21,9 +21,6 @@ enum APIError: Error, LocalizedError {
     }
 }
 
-
-
-
 class BaseProvider {
     
     /// requestGeneric

@@ -23,7 +23,7 @@ struct MovieTableView: View {
     //MARK: - Vista
     var body: some View {
         NavigationView{
-            List(viewModel.movies) { movie in
+            List(viewModel.movies){ movie in
                 CustomCellMovie(movie: movie).frame(height: 300)
             }.navigationBarTitle(Text("Movies from Apple"), displayMode: .large)
         }

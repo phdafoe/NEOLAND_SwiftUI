@@ -8,11 +8,8 @@
 
 import Foundation
 
-import Foundation
-
 // MARK: - MoviesModel
-struct MoviesModel: Codable, Identifiable {
-    let id = UUID()
+struct MoviesModel: Codable {
     let feed: Feed?
 }
 
