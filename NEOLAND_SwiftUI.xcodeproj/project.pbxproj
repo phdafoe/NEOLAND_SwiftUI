@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B46C25CD23D4B80F00BDE6D5 /* DetallePelicula.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C25CC23D4B80F00BDE6D5 /* DetallePelicula.swift */; };
 		B48971F8236EDEA400AE022F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48971F7236EDEA400AE022F /* AppDelegate.swift */; };
 		B48971FA236EDEA400AE022F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48971F9236EDEA400AE022F /* SceneDelegate.swift */; };
 		B4897200236EDEA700AE022F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B48971FF236EDEA700AE022F /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B46C25CC23D4B80F00BDE6D5 /* DetallePelicula.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetallePelicula.swift; sourceTree = "<group>"; };
 		B48971F4236EDEA400AE022F /* NEOLAND_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NEOLAND_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B48971F7236EDEA400AE022F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B48971F9236EDEA400AE022F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				B489720E236EDEE100AE022F /* MovieTableView.swift */,
 				B4897217236EE0D900AE022F /* MovieTablePresenter.swift */,
 				B4897219236EE17200AE022F /* MovieTableInteractor.swift */,
+				B46C25CC23D4B80F00BDE6D5 /* DetallePelicula.swift */,
 			);
 			path = CLASS;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B48971F8236EDEA400AE022F /* AppDelegate.swift in Sources */,
+				B46C25CD23D4B80F00BDE6D5 /* DetallePelicula.swift in Sources */,
 				B4897215236EE06C00AE022F /* MovieEntity.swift in Sources */,
 				B4BFBAD6236EE3580044FAD6 /* BaseProvider.swift in Sources */,
 				B4BFBAD4236EE29D0044FAD6 /* GenerProvider.swift in Sources */,

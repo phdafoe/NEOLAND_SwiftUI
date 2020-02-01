@@ -24,9 +24,17 @@ struct MovieTableView: View {
     var body: some View {
         NavigationView{
             List(viewModel.movies){ movie in
-                CustomCellMovie(movie: movie).frame(height: 300)
+                NavigationLink(destination: DetallePelicula()) {
+                    CustomCellMovie(movie: movie).frame(height: 300)
+                }
             }.navigationBarTitle(Text("Movies from Apple"), displayMode: .large)
         }
+    }
+}
+
+struct MovieTableView_Previews: PreviewProvider {
+    static var previews: some View {
+        MovieTableView()
     }
 }
 
